@@ -75,7 +75,8 @@ sudo addgroup xiaoyegroup sudo adduser --ingroup xiaoyegroup xiaohua #添加一
 ```# Members of the admin group may gain root privileges%admin ALL=(ALL) ALLxiaoye ALL=(ALL) ALL```
 
 * tee 从标准输入中获得输入输出到文件
-``tee abc.txt`` 所有输入转到文件abc.txt中，如果文件存在会覆盖，ctrol+D结束``tee –a abc.txt`` 追加到文件abc.txt，类似 >> abc.txt* curl 发送http请求
+``tee abc.txt`` 所有输入转到文件abc.txt中，如果文件存在会覆盖，ctrol+D结束
+``tee –a abc.txt`` 追加到文件abc.txt，类似 >> abc.txt* curl 发送http请求
 
 比如``curl 'http://127.0.0.1/test'``如果是https，可设置insecure flag，比如```curl -k -insecure -H "Authorization:<encrypted stirng>" 'https://someurl'```
 
