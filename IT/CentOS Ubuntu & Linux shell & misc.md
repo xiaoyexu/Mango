@@ -7,11 +7,14 @@
 >CentOS7 yum使用python2.7版本，升级python3可能会有问题在虚拟机上(CentOS7最小版)**如果没有ifconfig用``yum search ifconfig``再install如果没有lsb_release 运行``yum install redhat-lsb -y``**如果远程ssh有问题，用``ssh -v user@server``查看错误
 如果是``rsa key not found``，查看``/var/log/messages`` ，可能提到sshd error could not load host key检查``/etc/ssh/ssh_host_rsa_key`` 这类文件是否为空，如果为空，用命令``ssh-keygen -t rsa  -f /etc/ssh/ssh_host_rsa_key``生成即可在虚拟机上virtualbox，使用bridge模式，用来在主机同一个网中虚拟此机器
 >好比虚拟机在内网里，用nat模式，设置端口转发表，比如主机的127.0.0.1 2222 -> 10.0.2.15 22，这样用ssh root@127.0.0.1 来访问虚拟机CentOS7使用firewalld防火墙服务，如果外部（或虚拟机主机）无法访问其服务（如httpd,django），需要关闭或配置firewalld* 对已登录用户发消息``wall ‘message’``* 对特定用户发消息``write <user> pts/1````pts/1 ttyname``可以用命令w查看``echo‘test’ | write somebody pts/1````shutdown now````shutdown–r now``* yum 命令
-```yum install <package>yum–y install <package>    -- answer yes for allyum provides <command>yum whatprovides <command>   -- 查找含有某个命令或文件的包yum clean all 清除yum仓库信息
+```
+yum install <package>yum–y install <package>    -- answer yes for allyum provides <command>yum whatprovides <command>   -- 查找含有某个命令或文件的包yum clean all 清除yum仓库信息
 ```* scp 命令
 ```scp txt maven@192.168.56.102:~/ 把当前txt文件传到远程服务器上```
 * 设置时间
-```date -s "2012-08-24 15:03:30"```* 取网页```wget http://someurl 
+```
+date -s "2012-08-24 15:03:30"
+```* 取网页```wget http://someurl 
 ```输出到文件
 
 ```wget -O <file> <url>```
